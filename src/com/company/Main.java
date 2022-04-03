@@ -10,12 +10,12 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Formula();
-        //task41();
-        //task66();
-       // task91();
-         task116();
-        // task141();
+
+        //task41();//+
+        //task66();//+
+        //task91();
+        //task116();//+
+        //task141();+
     }
 
     /**
@@ -122,34 +122,33 @@ public class Main {
     private static void task116() {
 
         System.out.println("Задание 116");
-        int dif=0;
+        int dif = 0, num1 = 0, num2 = 0;
         System.out.println("Введите размер массива");
         int size = Integer.parseInt(scanner.next());
         int array[] = new int[size];
         System.out.println("Введите элементы массива");
-        for (int i = 1; i < size; i++) {
+        for (int i = 0; i < size; i++) {
             array[i] = Integer.parseInt(scanner.next());
         }
         System.out.println("Массив " + Arrays.toString(array));
+
         System.out.println("Введите k");
         int k = Integer.parseInt(scanner.next());
-        System.out.println("Введите d");
-        int d = Integer.parseInt(scanner.next());
-        System.out.println("Введите p");
-        int p = Integer.parseInt(scanner.next());
-        dif=d/p;
+        System.out.println("Введите n1");
+        int n1 = Integer.parseInt(scanner.next());
+        System.out.println("Введите n2");
+        int n2 = Integer.parseInt(scanner.next());
 
+        num1 = array[n1];
+        num2 = array[n2];
+        dif = num1 / num2;
 
-        for(int i=0;i< array.length+1;i++)
-        {
-            if(i==k) {
-
+        for (int i = 0; i < array.length + 1; i++) {
+            if (i == k) {
                 array[i] = dif;
             }
-
         }
         System.out.println("Массив после вставки элемента k " + Arrays.toString(array));
-
 
     }
 
@@ -162,25 +161,41 @@ public class Main {
     private static void task141() {
 
         System.out.println("Задание 141");
+        System.out.println("Введите размер массива");
+        int temp = 0;
+        int size = Integer.parseInt(scanner.next());
+        int array_a[] = new int[size];
+        int array_b[] = new int[size];
 
-    }
+        for (int i = 0; i < size; i++) {
+            array_a[i] = (int) (-50 + Math.random() * 100);
 
-    /**
-     * Task number=41
-     * Task number=66
-     * Task number=91
-     * Task number=116
-     * Task number=141
-     */
-    private static void Formula() {
-
-        int N = 18, K = 1, G = 1, task_num = 0;
-        for (; K <= 5; K++) {
-
-
-            task_num = (22 + N + (K - 1) * 25) + G;
-            System.out.println("Task number=" + task_num);
+            for (int j = 0; j < size; j++) {
+                array_b[i] = (int) (-50 + Math.random() * 100);
+            }
         }
+        System.out.println("Массив последовательности a " + Arrays.toString(array_a));
+        System.out.println("Массив последовательности b " + Arrays.toString(array_b));
+        Arrays.sort(array_a);
+        Arrays.sort(array_b);
+        System.out.println("Отсортированый массив a " + Arrays.toString(array_a));
+        System.out.println("Отсортированый массив b " + Arrays.toString(array_b));
+
+        for (int i = 0; i < array_a.length; i++) {
+
+            if(array_a[i]<0)
+            {
+                array_b[i]=array_b[i]*10;
+            }
+            else{
+                array_b[i]=0;
+            }
+
+        }
+        System.out.println("Массив последовательности a после замены значений в b " + Arrays.toString(array_a));
+        System.out.println("Массив последовательности b после замены чисел " + Arrays.toString(array_b));
+
 
     }
+
 }
