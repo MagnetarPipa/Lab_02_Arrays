@@ -10,11 +10,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        task41();//+
-        task66();//+
-        task91();//+
-        task116();//+
-        task141();//+
+        task41();
+        task66();
+        task91();
+        task116();
+        task141();
     }
 
     /**
@@ -75,7 +75,7 @@ public class Main {
                 mult = mult * array[i];
             }
         }
-        System.out.println("Рузультат произведения целых чисел меньших 0 =" + mult);
+        System.out.println("Рузультат произведения целых чисел меньших 0 =-" + mult);
     }
 
     /**
@@ -90,7 +90,7 @@ public class Main {
         int B[] = new int[size];
 
         for (int i = 0; i < B.length; i++) {
-           // System.out.println("Введите элементы массива");
+            // System.out.println("Введите элементы массива");
             //B[i] = Integer.parseInt(scanner.next());
             B[i] = (int) (Math.random() * 20);
 
@@ -186,11 +186,9 @@ public class Main {
             } else {
                 array_b[i] = 0;
             }
-
         }
         System.out.println("Массив последовательности a после замены значений в b " + Arrays.toString(array_a));
         System.out.println("Массив последовательности b после замены чисел " + Arrays.toString(array_b));
-
 
     }
 
