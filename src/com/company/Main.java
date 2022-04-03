@@ -11,11 +11,11 @@ public class Main {
     public static void main(String[] args) {
 
 
-        //task41();//+
-        //task66();//+
-        //task91();
-        //task116();//+
-        //task141();+
+        task41();//+
+        task66();//+
+        task91();//+
+        task116();//+
+        task141();//+
     }
 
     /**
@@ -79,19 +79,6 @@ public class Main {
         System.out.println("Рузультат произведения целых чисел меньших 0 =" + mult);
     }
 
-    public static void ShiftToRight(int a[], int n) {
-        int temp = a[n];
-
-        for (int i = n; i > 0; i--) {
-            a[i] = a[i - 1];
-        }
-
-        a[0] = temp;
-
-        System.out.println("Array after shifting to right by one : " + Arrays.toString(a));
-
-    }
-
     /**
      * 91.Удалить 10-й элемент одномерного массива целых чисел B(n).
      */
@@ -99,19 +86,31 @@ public class Main {
 
         System.out.println("Задание 91");
         System.out.println("Введите размер массива B");
+        int temp = 0;
         int size = Integer.parseInt(scanner.next());
         int B[] = new int[size];
 
         for (int i = 0; i < B.length; i++) {
-            System.out.println("Введите элементы массива");
-            B[i] = Integer.parseInt(scanner.next());
+           // System.out.println("Введите элементы массива");
+            //B[i] = Integer.parseInt(scanner.next());
+            B[i] = (int) (Math.random() * 20);
 
 
         }
-        //int  [] array = {1,2,3,4,5};
-        int n = 10;
-        System.out.println("Array " + Arrays.toString(B));
-        ShiftToRight(B, n);
+        System.out.println("Массив b до удаления элемента" + Arrays.toString(B));
+
+        System.out.println("Введите номер элемента для удаления: ");
+        int k = Integer.parseInt(scanner.next());
+        System.out.println("Массив без " + k + " элемента: ");
+        for (int i = 0; i < size - 1; i++) {
+
+            if (i >= k - 1) {
+                temp = B[i];
+                B[i] = B[i + 1];
+                B[i + 1] = 0;
+            }
+        }
+        System.out.println("Массив с удаленым элементом " + Arrays.toString(B));
 
     }
 
@@ -183,12 +182,10 @@ public class Main {
 
         for (int i = 0; i < array_a.length; i++) {
 
-            if(array_a[i]<0)
-            {
-                array_b[i]=array_b[i]*10;
-            }
-            else{
-                array_b[i]=0;
+            if (array_a[i] < 0) {
+                array_b[i] = array_b[i] * 10;
+            } else {
+                array_b[i] = 0;
             }
 
         }
