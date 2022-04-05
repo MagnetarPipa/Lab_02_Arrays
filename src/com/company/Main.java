@@ -1,7 +1,6 @@
 package com.company;
 
 import java.util.Arrays;
-import java.util.Random;
 import java.util.Scanner;
 
 public class Main {
@@ -10,11 +9,11 @@ public class Main {
 
     public static void main(String[] args) {
 
-        task41();
-        task66();
-        task91();
+        // task41();
+        //task66();
+        //task91();
         task116();
-        task141();
+        //task141();
     }
 
     /**
@@ -30,7 +29,7 @@ public class Main {
         System.out.println("Функция y=x^2");
 
         for (int i = 0; i < array.length; i++) {
-
+            //i++2
             if (i % 2 == 0) {
                 System.out.println("Введите значение аргумента");
                 array[i] = Integer.parseInt(scanner.next());
@@ -40,15 +39,10 @@ public class Main {
                 array[i] = (int) Math.pow(temp, 2);
             }
         }
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < array.length; i += 2) {
 
-            if (i % 2 == 0) {
+            System.out.printf(String.valueOf("\n x=" + array[i] + " y=" + array[i + 1]));
 
-                System.out.printf(String.valueOf("x=" + array[i]));
-            }
-            if (i % 2 != 0) {
-                System.out.println(" y=" + array[i]);
-            }
         }
     }
 
@@ -59,7 +53,7 @@ public class Main {
 
         System.out.println("Задание 66");
 
-        long mult = 1;
+        int mult = 1;
         System.out.println("Введите размер массива");
         int size = Integer.parseInt(scanner.next());
         int array[] = new int[size];
@@ -90,11 +84,8 @@ public class Main {
         int B[] = new int[size];
 
         for (int i = 0; i < B.length; i++) {
-            // System.out.println("Введите элементы массива");
-            //B[i] = Integer.parseInt(scanner.next());
+
             B[i] = (int) (Math.random() * 20);
-
-
         }
         System.out.println("Массив b до удаления элемента" + Arrays.toString(B));
 
@@ -109,6 +100,7 @@ public class Main {
                 B[i + 1] = 0;
             }
         }
+        B = Arrays.copyOf(B, B.length - 1);
         System.out.println("Массив с удаленым элементом " + Arrays.toString(B));
 
     }
@@ -120,33 +112,24 @@ public class Main {
     private static void task116() {
 
         System.out.println("Задание 116");
-        int dif = 0, num1 = 0, num2 = 0;
-        System.out.println("Введите размер массива");
-        int size = Integer.parseInt(scanner.next());
-        int array[] = new int[size];
-        System.out.println("Введите элементы массива");
-        for (int i = 0; i < size; i++) {
-            array[i] = Integer.parseInt(scanner.next());
-        }
-        System.out.println("Массив " + Arrays.toString(array));
-
-        System.out.println("Введите k");
+        System.out.println("Введите значение k");
         int k = Integer.parseInt(scanner.next());
-        System.out.println("Введите n1");
-        int n1 = Integer.parseInt(scanner.next());
-        System.out.println("Введите n2");
-        int n2 = Integer.parseInt(scanner.next());
+        //int size = Integer.parseInt(scanner.next());
+        int array[] = new int[k + 20];
+        for (int i = 0; i < array.length; i++) {
 
-        num1 = array[n1];
-        num2 = array[n2];
-        dif = num1 / num2;
+            array[i] = (int) (1 + Math.random() * 100);
 
-        for (int i = 0; i < array.length + 1; i++) {
-            if (i == k) {
-                array[i] = dif;
-            }
         }
-        System.out.println("Массив после вставки элемента k " + Arrays.toString(array));
+        System.out.println(Arrays.toString(array));
+        array = Arrays.copyOf(array, array.length + 1);
+        for (int i = array.length - 1; i >= k; i--) {
+
+            array[i] = array[i - 1];
+
+        }
+        array[k - 1] = (array[4] - array[6]);
+        System.out.println(Arrays.toString(array));
 
     }
 
@@ -167,22 +150,15 @@ public class Main {
 
         for (int i = 0; i < size; i++) {
             array_a[i] = (int) (-50 + Math.random() * 100);
-
-            for (int j = 0; j < size; j++) {
-                array_b[i] = (int) (-50 + Math.random() * 100);
-            }
         }
+
         System.out.println("Массив последовательности a " + Arrays.toString(array_a));
         System.out.println("Массив последовательности b " + Arrays.toString(array_b));
-        Arrays.sort(array_a);
-        Arrays.sort(array_b);
-        System.out.println("Отсортированый массив a " + Arrays.toString(array_a));
-        System.out.println("Отсортированый массив b " + Arrays.toString(array_b));
 
         for (int i = 0; i < array_a.length; i++) {
 
             if (array_a[i] < 0) {
-                array_b[i] = array_b[i] * 10;
+                array_b[i] = array_a[i] * 10;
             } else {
                 array_b[i] = 0;
             }
